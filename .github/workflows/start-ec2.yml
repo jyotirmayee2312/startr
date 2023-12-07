@@ -1,15 +1,20 @@
 name: Start EC2 Instance
 on:
- schedule:
-  - cron: '43 14 * * *' # This will run the workflow every day at 7 AM
+  schedule:
+    - cron: '45 14 * * *' # This will run the workflow every day at 7 AM
 jobs:
- start-instance:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Start EC2 Instance
-      run: |
-        aws ec2 start-instances --instance-ids ${{ secrets.AWS_EC2_INSTANCE_ID }}
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+  start-instance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Start EC2 Instance
+        run: |
+          aws ec2 start-instances --instance-ids ${{ secrets.AWS_EC2_INSTANCE_ID }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
