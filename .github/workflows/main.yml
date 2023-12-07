@@ -10,7 +10,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y awscli
-
       - name: Start EC2 Instance
         run: |
           aws ec2 start-instances --instance-ids ${{ secrets.AWS_EC2_INSTANCE_ID }}
