@@ -6,7 +6,7 @@ ec2 = boto3.client('ec2')
 # Start the instance
 response = ec2.start_instances(
    InstanceIds=[
-       'Your_Instance_ID', # replace with your instance ID
+       'i-0deebeac01cf98d54', # replace with your instance ID
    ]
 )
 
