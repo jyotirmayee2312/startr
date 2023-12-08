@@ -1,7 +1,5 @@
 name: Stop EC2 Instance
-#on:
- #schedule:
-   #cron: '0 0 * * *' # This will run the workflow every day at midnight
+
 jobs:
  stop-instance:
    runs-on: ubuntu-latest
