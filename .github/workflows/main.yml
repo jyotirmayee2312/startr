@@ -1,7 +1,7 @@
 name: Run Python Script and AWS Configuration
 jobs:
   run-script:
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
